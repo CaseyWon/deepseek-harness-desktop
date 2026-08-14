@@ -1,0 +1,93 @@
+{
+  "name": "@deepseek-ai/dsh-desktop",
+  "description": "Desktop application shell for DeepSeek Harness",
+  "version": "0.1.0-rc.5",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "directory": "apps/desktop"
+  },
+  "author": "DeepSeek AI",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/main.js",
+  "files": [
+    "dist",
+    "!dist/**/*.map"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json --noEmit && node scripts/build.mjs",
+    "dev": "pnpm run build && node scripts/dev.mjs",
+    "test": "vitest run --root ../.. apps/desktop/tests/backend.spec.ts",
+    "dist": "pnpm run build && node scripts/prepare-backend.mjs && electron-builder --publish never"
+  },
+  "dependencies": {
+    "@deepseek-ai/dsh": "workspace:^"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.0",
+    "electron": "43.4.0",
+    "electron-builder": "26.0.20",
+    "esbuild": "^0.25.0",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.8"
+  },
+  "build": {
+    "appId": "com.deepseek.harness.desktop",
+    "productName": "DeepSeek Harness",
+    "asar": true,
+    "npmRebuild": false,
+    "asarUnpack": [
+      "node_modules/**/node-pty/**",
+      "node_modules/**/koffi/**",
+      "node_modules/**/node-addon-require-builtin*/**"
+    ],
+    "directories": {
+      "output": "../../.artifacts/desktop-release"
+    },
+    "files": [
+      "dist/**/*",
+      "!dist/backend/**/*",
+      "!dist/**/*.map",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "dist/backend",
+        "to": "backend",
+        "filter": [
+          "**/*"
+        ]
+      },
+      {
+        "from": "dist/backend/node_modules",
+        "to": "backend/node_modules",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "win": {
+      "signAndEditExecutable": false,
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "DeepSeek-Harness-${version}-${arch}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "DeepSeek Harness"
+    }
+  }
+}

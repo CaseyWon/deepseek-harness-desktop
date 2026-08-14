@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <title>DeepSeek Harness</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="titlebar" aria-label="桌面窗口">
+      <div class="brand"><span class="brand-mark">D</span><span>DeepSeek Harness</span></div>
+      <span class="edition">DESKTOP PREVIEW</span>
+      <div class="window-controls">
+        <button data-window="minimize" aria-label="最小化"><svg viewBox="0 0 16 16"><path d="M3 8.5h10" /></svg></button>
+        <button data-window="maximize" aria-label="最大化"><svg viewBox="0 0 16 16"><rect x="3.5" y="3.5" width="9" height="9" rx=".5" /></svg></button>
+        <button data-window="close" aria-label="关闭"><svg viewBox="0 0 16 16"><path d="m4 4 8 8m0-8-8 8" /></svg></button>
+      </div>
+    </header>
+
+    <main class="app-shell">
+      <section class="hero-panel">
+        <div class="eyebrow"><span></span>LOCAL-FIRST AGENT WORKSPACE</div>
+        <h1>让 Harness<br /><em>真正落到桌面。</em></h1>
+        <p class="hero-copy">会话、工具、终端与文件都在一个本地工作台中协作。无需浏览器标签页，也不向局域网暴露服务。</p>
+
+        <div class="feature-row">
+          <article><strong>01</strong><span>本地隔离</span><small>仅监听回环地址</small></article>
+          <article><strong>02</strong><span>完整能力</span><small>复用 Harness 插件系统</small></article>
+          <article><strong>03</strong><span>原生体验</span><small>窗口与进程统一管理</small></article>
+        </div>
+
+        <button class="project-link" id="project-link">
+          <span>查看开源项目</span>
+          <svg viewBox="0 0 20 20"><path d="M5 10h10m-4-4 4 4-4 4" /></svg>
+        </button>
+      </section>
+
+      <section class="launch-panel" aria-live="polite">
+        <div class="ambient ambient-one"></div>
+        <div class="ambient ambient-two"></div>
+        <div class="launch-card">
+          <div class="orbital" aria-hidden="true">
+            <span class="orbit orbit-one"></span>
+            <span class="orbit orbit-two"></span>
+            <div class="core-mark"><span>D</span></div>
+            <i class="satellite satellite-one"></i><i class="satellite satellite-two"></i>
+          </div>
+
+          <div class="status-copy">
+            <span class="status-label" id="status-label">正在初始化</span>
+            <h2 id="status-title">正在准备桌面环境</h2>
+            <p id="status-detail">读取窗口与本地运行配置</p>
+          </div>
+
+          <div class="progress-track"><span id="progress-bar"></span></div>
+
+          <ol class="steps">
+            <li class="active" data-step="preparing"><span></span>桌面环境</li>
+            <li data-step="starting"><span></span>本地服务</li>
+            <li data-step="connecting"><span></span>Harness 工作台</li>
+          </ol>
+
+          <div class="error-actions" id="error-actions" hidden>
+            <button class="primary-action" id="retry-button">重新启动</button>
+            <button class="secondary-action" id="log-button">查看日志</button>
+          </div>
+        </div>
+
+        <footer><span class="secure-dot"></span>本地连接受保护 <b>·</b> <span id="version">DeepSeek Harness Desktop</span></footer>
+      </section>
+    </main>
+
+    <script src="./renderer.js"></script>
+  </body>
+</html>
