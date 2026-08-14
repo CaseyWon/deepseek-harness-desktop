@@ -14,6 +14,16 @@ DeepSeek Harness Desktop 是基于开源项目 [DeepSeek Harness](https://github
 
 > **非官方项目：** 本项目与 DeepSeek 或 `deepseek-ai` 组织不存在隶属关系，也不由其维护或背书。DeepSeek Harness 是本项目的上游依赖，保留其独立的项目身份与支持渠道。
 
+## 界面预览
+
+### 启动页
+
+![DeepSeek Harness Desktop 启动页](assets/desktop-startup.png)
+
+### 主页
+
+![DeepSeek Harness Desktop 主页](assets/desktop-home.png)
+
 ## 核心特性
 
 - **桌面优先的工作方式。** 直接从 Windows 原生应用启动 Harness，无需手动运行终端进程和管理浏览器标签页。

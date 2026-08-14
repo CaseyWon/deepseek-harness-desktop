@@ -14,6 +14,16 @@ DeepSeek Harness Desktop is an independently developed, third-party desktop edit
 
 > **Unofficial project:** This project is not affiliated with, maintained by, or endorsed by DeepSeek or the `deepseek-ai` organization. DeepSeek Harness remains an upstream dependency and retains its own project identity and support channels.
 
+## Interface preview
+
+### Startup
+
+![DeepSeek Harness Desktop startup screen](assets/desktop-startup.png)
+
+### Home
+
+![DeepSeek Harness Desktop home screen](assets/desktop-home.png)
+
 ## Highlights
 
 - **Desktop-first workflow.** Launch Harness from a native Windows application instead of starting a terminal process and managing a browser tab.
